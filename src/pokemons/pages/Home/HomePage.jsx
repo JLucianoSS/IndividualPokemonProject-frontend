@@ -1,10 +1,17 @@
 
-
-import React from 'react'
+import { Cards } from "../../components";
+import { useHomePage } from "../../hooks/useHomePage";
 
 export const HomePage = () => {
+
+  const { pokemons, isLoading } = useHomePage();
+
   return (
-   
-    <h1>Home Page</h1>
-  )
-}
+    <>
+      { !isLoading ?  
+      <Cards pokemons={pokemons} />
+        : (<p>Cargando...</p>)
+    }
+    </>
+  );
+};

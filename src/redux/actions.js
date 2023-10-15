@@ -1,0 +1,9 @@
+
+
+export const GET_POKEMONS = "GET_POKEMONS";
+export const GET_POKEMON_DETAIL_BY_ID = "GET_POKEMON_DETAIL_BY_ID";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+
+
+
+
