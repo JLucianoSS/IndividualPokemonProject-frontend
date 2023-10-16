@@ -1,4 +1,4 @@
-import { Card } from "../Card/card"
+import { Card } from "../../components"
 
 
 export const Cards = ( { pokemons } ) => {
