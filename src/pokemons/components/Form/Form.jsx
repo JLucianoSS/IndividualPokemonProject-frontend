@@ -1,80 +1,10 @@
-import { useEffect, useState } from "react";
-import style from "./Form.module.css";
-import validate from "./validation";
 
-import { useSelector, useDispatch } from "react-redux"
-import { getTypes, addPokemon } from "../../../redux/actions-types";
+import { useForm } from "../../hooks/useForm";
+import style from "./Form.module.css";
 
 export const Form = () => {
 
-  const types = useSelector((state) => state.types);
-  const createdPokemon = useSelector((state) => state.createdPokemon);
-  const dispatch = useDispatch();
-
-  const [newPokemon, setNewPokemon] = useState({
-    name: "",
-    images: "",
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    speed: 0,
-    height: 0,
-    weight: 0,
-    types: [],
-  });
-  
-  const [errors, setErrors] = useState({});
-
-  const handleCheckboxChange = (value) => {
-    if (newPokemon.types.includes(value)) {
-      setNewPokemon({ ...newPokemon, types:newPokemon.types.filter((t) => t !== value) });
-    } else {
-      if (newPokemon.types.length < 2) {
-        setNewPokemon({ ...newPokemon, types:[...newPokemon.types,value] });
-      }
-    }
-  }
-
-  const handleChange = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-    setNewPokemon({ ...newPokemon, [property]: value });
-  };
-
-  const  areThereErrors = (objeto) => {
-    for (let propiedad in objeto) {
-      if (objeto.hasOwnProperty(propiedad) && objeto[propiedad] !== "") {
-        return false; 
-      }
-    }
-    return true; // Todas las propiedades tienen el valor ""
-  }
-
-  const  convertPropertiesToInteger = (objeto) => {
-    const nuevoObjeto = {};
-    for (const propiedad in objeto) {
-      if ( (typeof objeto[propiedad] === "string") && !isNaN(objeto[propiedad])) {
-        nuevoObjeto[propiedad] = parseInt(objeto[propiedad], 10);
-      } else {
-        nuevoObjeto[propiedad] = objeto[propiedad];
-      }
-    }
-    return nuevoObjeto;
-  }
-  
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if(areThereErrors(errors)){
-      const newPokemonFinal = convertPropertiesToInteger(newPokemon);
-      dispatch(addPokemon(newPokemonFinal));
-    }else window.alert("Falta algún campo o no es válido");
-  };
-
-  useEffect(() => {
-    dispatch(getTypes());
-    setErrors(validate(newPokemon))
-  },[newPokemon]);
+  const { newPokemon, errors, types, checkBox, handleChange, handleSubmit, cleanFields } = useForm();
 
   return (
     <>
@@ -167,19 +97,22 @@ export const Form = () => {
         <label >Types:</label>
         {errors.types && ( <p className={style.errors}>{errors.types}</p>)}
         {types.map((type) => (
-            <>
-              <label key={type.ID}>
-                <input 
-                  type="checkbox" 
-                  name={type.name} 
-                  value={newPokemon.types[type.ID]} 
-                  onChange={() => handleCheckboxChange(type.ID)} 
-                  disabled={ newPokemon.types.length === 2 && !(newPokemon.types.includes(type.ID)) }
-                />
-                {type.name}
-              </label>
-            </>
-          ))}
+          <>
+            <label key={type.ID}>
+              <input 
+                type="checkbox" 
+                name={type.name} 
+                value={type.ID} 
+                onChange={handleChange} 
+                checked={newPokemon.types.includes(type.ID)}
+                disabled={ !checkBox && !newPokemon.types.includes(type.ID) }
+              />
+              {type.name}
+            </label>
+          </>
+        ))}
+        <a href="#" onClick={cleanFields}>Limpiar campos</a>
+
      
         <button type="submit">Create</button>
       </form>

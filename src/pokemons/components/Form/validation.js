@@ -7,7 +7,6 @@ const validate = (input) => {
     const { name, images, hp, attack, defense, speed, height, weight, types  } = input;
     let errors = {};
 
-
     /*Validaciones de name */
     if ( name.trim() === '' || (typeof name !== 'string') ){
         errors["name"] = "Nombre no puede estár vacío";
