@@ -1,22 +1,25 @@
+import { useForm } from "../../hooks/useForm";
 
 
 
-export const OptionTypes = ({types}) => {
-
-    const handleOnChange = (event) => {
-        const valor = event.target.value;
-        console.log(valor);
-        
-    }
-
+export const OptionTypes = ({ newPokemon, types, checkBox, handleChange, }) => {
   return (
     <div>
         {types.map((type) => (
-            <>
-              <input key={type.ID} type="checkbox"  name={type.name} value={type.ID} onChange={handleOnChange}></input>
-              <span key={type.UUID}> {type.ID}. {type.name} </span>
-            </>
-          ))}
+          <>
+            <label key={type.ID}>
+              <input 
+                type="checkbox" 
+                name={type.name} 
+                value={type.ID} 
+                onChange={handleChange} 
+                checked={newPokemon.types.includes(type.ID)}
+                disabled={ !checkBox && !newPokemon.types.includes(type.ID) }
+              />
+              {type.name}
+            </label>
+          </>
+        ))}
     </div>
   );
 }

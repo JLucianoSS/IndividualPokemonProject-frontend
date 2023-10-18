@@ -1,25 +1,31 @@
-
 import { useForm } from "../../hooks/useForm";
+import { OptionTypes } from "../../components";
 import style from "./Form.module.css";
 
 export const Form = () => {
-
-  const { newPokemon, errors, types, checkBox, handleChange, handleSubmit, cleanFields } = useForm();
+  const {
+    newPokemon,
+    errors,
+    types,
+    checkBox,
+    handleChange,
+    handleSubmit,
+    cleanFields,
+  } = useForm();
 
   return (
     <>
       <form className={style.container} onSubmit={handleSubmit}>
         <label>name</label>
         <input
-          required  
+          required
           type="text"
           name="name"
           value={newPokemon.name}
           onChange={handleChange}
           placeholder="Ejm: Ultrapikachu"
         />
-        {errors.name && ( <p className={style.errors}>{errors.name}</p>)}
-       
+        {errors.name && <p className={style.errors}>{errors.name}</p>}
 
         <label>image</label>
         <input
@@ -30,18 +36,18 @@ export const Form = () => {
           onChange={handleChange}
           placeholder="Url: .jpg, .jpeg, .png o .gif"
         />
-        {errors.images && ( <p className={style.errors}>{errors.images}</p>)}
+        {errors.images && <p className={style.errors}>{errors.images}</p>}
 
         <label>hp</label>
         <input
-          required 
+          required
           type="number"
           step="1"
           name="hp"
           value={newPokemon.hp}
           onChange={handleChange}
         />
-        {errors.hp && ( <p className={style.errors}>{errors.hp}</p>)}
+        {errors.hp && <p className={style.errors}>{errors.hp}</p>}
 
         <label>attack</label>
         <input
@@ -51,7 +57,7 @@ export const Form = () => {
           value={newPokemon.attack}
           onChange={handleChange}
         />
-        {errors.attack && ( <p className={style.errors}>{errors.attack}</p>)}
+        {errors.attack && <p className={style.errors}>{errors.attack}</p>}
 
         <label>defense</label>
         <input
@@ -61,8 +67,7 @@ export const Form = () => {
           value={newPokemon.defense}
           onChange={handleChange}
         />
-        {errors.defense && ( <p className={style.errors}>{errors.defense}</p>)}
-        
+        {errors.defense && <p className={style.errors}>{errors.defense}</p>}
 
         <label>speed</label>
         <input
@@ -72,7 +77,7 @@ export const Form = () => {
           value={newPokemon.speed}
           onChange={handleChange}
         />
-        {errors.speed && ( <p className={style.errors}>{errors.speed}</p>)}
+        {errors.speed && <p className={style.errors}>{errors.speed}</p>}
 
         <label>height</label>
         <input
@@ -82,8 +87,8 @@ export const Form = () => {
           value={newPokemon.height}
           onChange={handleChange}
         />
-        {errors.height && ( <p className={style.errors}>{errors.height}</p>)}
-        
+        {errors.height && <p className={style.errors}>{errors.height}</p>}
+
         <label>weight</label>
         <input
           required
@@ -92,28 +97,20 @@ export const Form = () => {
           value={newPokemon.weight}
           onChange={handleChange}
         />
-        {errors.weight && ( <p className={style.errors}>{errors.weight}</p>)}
+        {errors.weight && <p className={style.errors}>{errors.weight}</p>}
 
-        <label >Types:</label>
-        {errors.types && ( <p className={style.errors}>{errors.types}</p>)}
-        {types.map((type) => (
-          <>
-            <label key={type.ID}>
-              <input 
-                type="checkbox" 
-                name={type.name} 
-                value={type.ID} 
-                onChange={handleChange} 
-                checked={newPokemon.types.includes(type.ID)}
-                disabled={ !checkBox && !newPokemon.types.includes(type.ID) }
-              />
-              {type.name}
-            </label>
-          </>
-        ))}
-        <a href="#" onClick={cleanFields}>Limpiar campos</a>
+        <label>Types:</label>
+        {errors.types && <p className={style.errors}>{errors.types}</p>}
+        <OptionTypes
+          newPokemon={newPokemon}
+          types={types}
+          checkBox={checkBox}
+          handleChange={handleChange}
+        />
+        <a href="#" onClick={cleanFields}>
+          Limpiar campos
+        </a>
 
-     
         <button type="submit">Create</button>
       </form>
     </>
