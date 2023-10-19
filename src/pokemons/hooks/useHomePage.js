@@ -26,7 +26,7 @@ export const useHomePage = () => {
   /*Cuando el componente se monta, renderiza todos los pokemons/cards */
   useEffect(() => {
     getAllPokemons();
-  }, []);
+  }, [dispatch]);
 
   return {
     pokemons,

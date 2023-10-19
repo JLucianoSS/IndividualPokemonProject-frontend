@@ -1,16 +1,17 @@
 
 
 import { Link } from 'react-router-dom'
+import styles from './Card.module.css'
+
 export const Card = ( {id,name,images} ) => {
   return (
-    <div className='card'>
+    <div className={styles.container_card}>
 
+        <h4 className={styles.id}>{id}</h4>
         <Link to={`/detail/${id}`}>
-            <h2>{name}</h2>
+            <h2 className={styles.name}>{name}</h2>
         </Link>
-
-        <img src={images} alt={name}/>
-        <h4>{id}</h4>
+        <img className={styles.img} src={images} alt={name}/>
     </div>
   )
 }

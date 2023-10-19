@@ -6,12 +6,15 @@ export const HomePage = () => {
 
   const { pokemons, isLoading } = useHomePage();
 
+
+
+
   return (
     <>
       { !isLoading ?  
       <Cards pokemons={pokemons} />
         : (<p>Cargando...</p>)
-    }
+     }
     </>
   );
 };
