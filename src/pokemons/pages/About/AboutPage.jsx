@@ -1,10 +1,14 @@
+import { BackButton } from "../../components"
 
 
-import React from 'react'
+
 
 export const AboutPage = () => {
   return (
+    <>
+    <BackButton/>
     <h1>About Page</h1>
+    </>
   )
 }
  

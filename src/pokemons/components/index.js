@@ -7,4 +7,5 @@ export { NavBar } from "./NavBar/NavBar";
 export { OptionTypes } from "./OptionTypes/OptionTypes";
 export { PaginationButtons } from "./PaginationButtons/PaginationButtons";
 export { SearchBar } from "./SearchBar/SearchBar";
+export { BackButton } from "./BackButton/BackButton";
 
