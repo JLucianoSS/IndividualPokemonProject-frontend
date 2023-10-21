@@ -10,7 +10,12 @@ export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const GET_TYPES = "GET_TYPES";
 export const ADD_POKEMON = "ADD_POKEMON";
 
+/*Para buscar pokemon */
+export const GET_POKEMON = "GET_POKEMON";
+export const SET_INPUT = "SET_INPUT";
+
 /*Para la paginacion */
+// export const GET_POKEMONS_PER_PAGE = "GET_POKEMONS_PER_PAGE";
 export const NAVIGATE_NEXT = "NAVIGATE_NEXT";
 export const NAVIGATE_PREV = "NAVIGATE_PREV";
 export const CHANGE_POKEMONS_PER_PAGE = "CHANGE_POKEMONS_PER_PAGE";

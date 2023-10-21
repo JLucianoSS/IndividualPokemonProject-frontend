@@ -11,7 +11,7 @@ export const PaginationButtons = ({pages,currentPage,totalPages}) => {
       <p>
         <button disabled={activePage === pages[0]} onClick={handleNavigatePrev}>Prev</button>
         {pages.map((p) => (
-          <button className={(activePage === p) && style.active } key={p.id} onClick={() => handleCurrentPage.call(null, p)}>
+          <button className={activePage === p ? style.active : "" } key={p.id} onClick={() => handleCurrentPage.call(null, p)}>
             {p}
           </button>
         ))}
@@ -21,7 +21,6 @@ export const PaginationButtons = ({pages,currentPage,totalPages}) => {
       <div>
         Page {currentPage} of {totalPages}
       </div>
-
     </>
   );
 };

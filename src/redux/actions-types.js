@@ -6,6 +6,8 @@ import {
   CLEAN_DETAIL,
   GET_TYPES,
   ADD_POKEMON,
+  GET_POKEMON,
+  SET_INPUT,
   NAVIGATE_NEXT,
   NAVIGATE_PREV,
   CHANGE_POKEMONS_PER_PAGE,
@@ -68,8 +70,32 @@ export const addPokemon = (pokemon) => {
 };
 
 
+/*------------------------------------------------------------------------------------------- */
+/* Trae un pokemon por name mediante el searchBar */
+export const getPokemon = (name) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(`http://localhost:3001/api/pokemon/?name=${name}`);      
+      dispatch({ type: GET_POKEMON, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_POKEMON, payload: error.response.data });
+      console.log(error.message);
+      // window.alert(error.response.data.message);
+    }
+  };
+};
+
+/* ESTADO AUXILIAR PARA ESCUCHAR los cambios dEL INPUT DEL SEARCH*/
+export const setInput = (valor) => {
+  return { type: SET_INPUT, payload: valor };
+};
+/*------------------------------------------------------------------------------------------- */
+
 
 /* Paginación  */
+// export const getPokemonsPerpage = (pokemons) => {
+//   return { type: GET_POKEMONS_PER_PAGE, payload:pokemons };
+// };
 export const onNavigatePrev = () => {
   return { type: NAVIGATE_PREV };
 };

@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import validate from "../components/Form/validation";
 import { getTypes, addPokemon } from "../../redux/actions-types";
-let BANDERA = true; 
-/* Esta bandera ayudará a que haga la peticion para traer a los types una sola ves!! Es decir
-solo cuando el componente se monte */
+import { areThereErrors } from "../utils/areThereErrors";
+
 
 export const useForm = () => {
   const types = useSelector((state) => state.types);
@@ -77,10 +76,10 @@ export const useForm = () => {
 
   /*Ciclo de vida de Form.jsx */
   useEffect(() => {
-    if (BANDERA) {
-      dispatch(getTypes());
-      BANDERA = false;
-    }
+    dispatch(getTypes());
+  },[]);
+
+  useEffect(() => {
     setErrors(validate(newPokemon));
     if (newPokemon.types.length >= 2) {
       setCheckBox(false);
@@ -100,12 +99,4 @@ export const useForm = () => {
   };
 };
 
-//**Metodo auxiliar */
-const areThereErrors = (objeto) => {
-  for (let propiedad in objeto) {
-    if (objeto.hasOwnProperty(propiedad) && objeto[propiedad] !== "") {
-      return false;
-    }
-  }
-  return true; // Todas las propiedades tienen el valor ""
-};
+

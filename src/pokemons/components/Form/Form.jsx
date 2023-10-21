@@ -1,5 +1,6 @@
 import { useForm } from "../../hooks/useForm";
 import { OptionTypes } from "../../components";
+import { areThereErrors } from "../../utils/areThereErrors";
 import style from "./Form.module.css";
 
 export const Form = () => {
@@ -18,7 +19,6 @@ export const Form = () => {
       <form className={style.container} onSubmit={handleSubmit}>
         <label>name</label>
         <input
-          required
           type="text"
           name="name"
           value={newPokemon.name}
@@ -29,7 +29,6 @@ export const Form = () => {
 
         <label>image</label>
         <input
-          required
           type="text"
           name="images"
           value={newPokemon.images}
@@ -40,7 +39,6 @@ export const Form = () => {
 
         <label>hp</label>
         <input
-          required
           type="number"
           step="1"
           name="hp"
@@ -51,7 +49,6 @@ export const Form = () => {
 
         <label>attack</label>
         <input
-          required
           type="number"
           name="attack"
           value={newPokemon.attack}
@@ -61,7 +58,6 @@ export const Form = () => {
 
         <label>defense</label>
         <input
-          required
           type="number"
           name="defense"
           value={newPokemon.defense}
@@ -71,7 +67,6 @@ export const Form = () => {
 
         <label>speed</label>
         <input
-          required
           type="number"
           name="speed"
           value={newPokemon.speed}
@@ -81,7 +76,6 @@ export const Form = () => {
 
         <label>height</label>
         <input
-          required
           type="number"
           name="height"
           value={newPokemon.height}
@@ -91,7 +85,6 @@ export const Form = () => {
 
         <label>weight</label>
         <input
-          required
           type="number"
           name="weight"
           value={newPokemon.weight}
@@ -111,7 +104,7 @@ export const Form = () => {
           Limpiar campos
         </a>
 
-        <button type="submit">Create</button>
+        <button disabled={!areThereErrors(errors)} type="submit">Create</button>
       </form>
     </>
   );

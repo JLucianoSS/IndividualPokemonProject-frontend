@@ -6,9 +6,6 @@ export const HomePage = () => {
 
   const { pokemons, isLoading } = useHomePage();
 
-
-
-
   return (
     <>
       { !isLoading ?  

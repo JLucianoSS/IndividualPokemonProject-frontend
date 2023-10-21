@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { SearchBar } from '../../components'
 
 export const NavBar = () => {
   return (
@@ -25,7 +26,7 @@ export const NavBar = () => {
 
       <div className="container">
         <ul>
-            <span className="link">Jorge</span>
+            <SearchBar />
             <Link to="/">
               <button type="button">Logout</button>
             </Link>
