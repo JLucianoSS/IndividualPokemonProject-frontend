@@ -3,7 +3,8 @@
 import { Link } from 'react-router-dom'
 import styles from './Card.module.css'
 
-export const Card = ( {id,name,images} ) => {
+export const Card = ( {id,name,images,types} ) => {
+  
   return (
     <div className={styles.container_card}>
 
@@ -12,6 +13,8 @@ export const Card = ( {id,name,images} ) => {
             <h2 className={styles.name}>{name}</h2>
         </Link>
         <img className={styles.img} src={images} alt={name}/>
+        {types.map((type) => (<span>{type.name}</span>))}
+        
     </div>
   )
 }

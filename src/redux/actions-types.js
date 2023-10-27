@@ -8,6 +8,10 @@ import {
   ADD_POKEMON,
   GET_POKEMON,
   SET_INPUT,
+  FILTER_BY_ORIGEN,
+  FILTER_BY_TYPE,
+  ORDER_BY_ALPHA,
+  ORDER_BY_ATTACK,
   NAVIGATE_NEXT,
   NAVIGATE_PREV,
   CHANGE_POKEMONS_PER_PAGE,
@@ -78,18 +82,34 @@ export const getPokemon = (name) => {
       const { data } = await axios.get(`http://localhost:3001/api/pokemon/?name=${name}`);      
       dispatch({ type: GET_POKEMON, payload: data });
     } catch (error) {
-      dispatch({ type: GET_POKEMON, payload: error.response.data });
+      // dispatch({ type: GET_POKEMON, payload: error.response.data });
       console.log(error.message);
-      // window.alert(error.response.data.message);
+      window.alert(error.response.data.message);
     }
   };
 };
 
-/* ESTADO AUXILIAR PARA ESCUCHAR los cambios dEL INPUT DEL SEARCH*/
+/* ESTADO AUXILIAR PARA ESCUCHAR los cambios dEL INPUT DEL SEARCH */
 export const setInput = (valor) => {
   return { type: SET_INPUT, payload: valor };
 };
 /*------------------------------------------------------------------------------------------- */
+
+/* Filtrados y ordenamientos */
+/* Nota: "Origen" de la api o de la bd */
+export const filterByOrigen = (origen) => {
+  return { type: FILTER_BY_ORIGEN, payload: origen };
+};
+export const filterByType = (type) => {
+  return { type: FILTER_BY_TYPE, payload: type };
+};
+export const orderByName = (order) => {
+  return { type: ORDER_BY_ALPHA, payload: order };
+};
+export const orderByAttack = () => {
+  return { type: ORDER_BY_ATTACK};
+};
+
 
 
 /* Paginación  */

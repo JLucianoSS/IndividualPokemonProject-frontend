@@ -1,25 +1,16 @@
 
-import { useSelector } from "react-redux";
+
 import { Card, PaginationButtons } from "../../components";
+import { useCards } from "../../hooks/useCards";
 
-export const Cards = ({ pokemons }) => {
-  /* 
-  - El estado global ya viene por props como "pokemons" */
-  const pokemonsPerPage = useSelector((state) => state.pokemonsPerPage);
-  const currentPage = useSelector((state) => state.currentPage);
+export const Cards = ({pokemons}) => {
 
-  /*Logica de la paginación */
-  const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
-  const pages = [...Array(totalPages + 1).keys()].slice(1);
-  const indexOfLastPage = currentPage * pokemonsPerPage;
-  const indexOfFirstPage = indexOfLastPage - pokemonsPerPage;
-  const visiblePokemons = pokemons.slice(indexOfFirstPage, indexOfLastPage);
+  const { pages,currentPage,totalPages, pokemonListToRender } = useCards(pokemons);
 
-
-  if (pokemons[0].message) {
-    return <div>{pokemons[0].message}</div>;
+  if (pokemonListToRender.length === 0) {
+    return <div>No hay pokemons para mostrar</div>;
   }
-
+  
   return (
     <>
       {/* Implementacion del paginado */}
@@ -30,26 +21,16 @@ export const Cards = ({ pokemons }) => {
       />
 
       {/* Muestra los pokemons en forma de cards */}
-      {pokemons.length === 1 ? ( <div className="cards">
-          {pokemons.map((pokemon) => (
-            <Card
-              key={pokemon.id}
-              id={pokemon.id}
-              name={pokemon.name}
-              images={pokemon.images}
-            />
-          ))}
-        </div>) : ( <div className="cards">
-          {visiblePokemons.map((pokemon) => (
-            <Card
-              key={pokemon.id}
-              id={pokemon.id}
-              name={pokemon.name}
-              images={pokemon.images}
-            />
-          ))}
-        </div>)}
-       
+
+      {pokemonListToRender.map((pokemon) => (
+        <Card
+          key={pokemon.id}
+          id={pokemon.id}
+          name={pokemon.name}
+          images={pokemon.images}
+          types={pokemon.types}
+        />
+      ))}
     </>
   );
 };

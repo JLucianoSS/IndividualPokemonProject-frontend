@@ -1,15 +1,12 @@
 
-import { Cards } from "../../components";
-import { useHomePage } from "../../hooks/useHomePage";
+import { Cards, FilterAndOrder, ReloadButton } from "../../components";
 
-export const HomePage = () => {
-
-  const { pokemons, isLoading } = useHomePage();
-
+export const HomePage = ({pokemons, isLoading}) => {
   return (
     <>
-      { !isLoading ?  
-      <Cards pokemons={pokemons} />
+      <ReloadButton />
+      <FilterAndOrder />
+      { !isLoading ? (<Cards pokemons={pokemons}/>)  
         : (<p>Cargando...</p>)
      }
     </>

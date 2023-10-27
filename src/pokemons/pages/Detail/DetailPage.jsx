@@ -1,4 +1,5 @@
 import { useDetailPage } from "../../hooks/useDetailPage";
+import { BackButton } from '../../components'
 
 export const DetailPage = () => {
   
@@ -7,6 +8,7 @@ export const DetailPage = () => {
 
   return (
     <div>
+      <BackButton/>
       {pokemonDetail.name ? (
         <>
           <h1>{pokemonDetail.name}</h1>
