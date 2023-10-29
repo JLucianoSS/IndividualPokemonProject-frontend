@@ -1,6 +1,17 @@
 
 
 .container_not_found{
-    background-color: #293241;
+    /* background-color: #293241; */
+    
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+
+}
+
+.container_not_found img{
+ 
+    width: 20rem;
 }

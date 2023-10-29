@@ -43,6 +43,13 @@ export const Cards = ({ pokemons }) => {
         currentPage={currentPage}
         totalPages={totalPages}
       />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
