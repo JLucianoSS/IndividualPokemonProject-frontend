@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import {
   GET_POKEMONS,
   GET_POKEMON_DETAIL_BY_ID,
@@ -19,10 +18,12 @@ import {
   IS_LOADING
 } from "./actions";
 
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
 export const getPokemons = () => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get("http://localhost:3001/api/pokemons");
+      const { data } = await axios.get(`${apiUrl}/pokemons`);
       dispatch({ type: GET_POKEMONS, payload: data });
     } catch (error) {
       console.log(error.message);
@@ -34,7 +35,7 @@ export const getPokemonDetailById = (id) => {
   return async function (dispatch) {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/api/pokemon/${id}`
+        `${apiUrl}/pokemon/${id}`
       );
       dispatch({ type: GET_POKEMON_DETAIL_BY_ID, payload: data });
     } catch (error) {
@@ -51,7 +52,7 @@ export const cleanDetail = () => {
 export const getTypes = () => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(`http://localhost:3001/api/types`);
+      const { data } = await axios.get(`${apiUrl}/types`);
       dispatch({ type: GET_TYPES, payload: data });
     } catch (error) {
       console.log(error.message);
@@ -63,7 +64,7 @@ export const getTypes = () => {
 export const addPokemon = (pokemon) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.post(`http://localhost:3001/api/pokemon`, {
+      const { data } = await axios.post(`${apiUrl}/pokemon`, {
         ...pokemon,
       });
       dispatch({ type: ADD_POKEMON, payload: data });
@@ -80,7 +81,7 @@ export const addPokemon = (pokemon) => {
 export const getPokemon = (name) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(`http://localhost:3001/api/pokemon/?name=${name}`);      
+      const { data } = await axios.get(`${apiUrl}/pokemon/?name=${name}`);      
       dispatch({ type: GET_POKEMON, payload: data });
     } catch (error) {
       // dispatch({ type: GET_POKEMON, payload: error.response.data });
