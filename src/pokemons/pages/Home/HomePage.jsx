@@ -2,6 +2,7 @@
 import { Cards, FilterAndOrder, ReloadButton } from "../../components";
 import { useHome } from "../../hooks/useHome";
 import style from "./Home.module.css";
+import img from "../../../assets/loading.gif";
 
 export const HomePage = ({ pokemons, isLoading }) => {
   
@@ -10,7 +11,7 @@ export const HomePage = ({ pokemons, isLoading }) => {
     <div className={style.container_loading}>
       <img
         className={style.loading}
-        src="src\assets\loading.gif"
+        src={img}
         alt="loading"
       />
     </div>
