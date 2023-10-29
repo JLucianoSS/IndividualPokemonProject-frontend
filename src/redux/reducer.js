@@ -14,6 +14,7 @@ import {
   NAVIGATE_NEXT,
   CURRENT_PAGE,
   CHANGE_POKEMONS_PER_PAGE,
+  IS_LOADING
 } from "./actions";
 
 const initialState = {
@@ -36,6 +37,9 @@ const initialState = {
   /* PAGINATION */
   pokemonsPerPage: 12, // # paginación
   currentPage: 1, // actual page
+
+  /* LOADING */
+  isLoading:true
 };
 
 
@@ -130,6 +134,11 @@ export const rootReducer = (state = initialState, action) => {
         return{ ...state ,pokemonsPerPage:action.payload }
     case CURRENT_PAGE:
         return{ ...state ,currentPage:action.payload }
+
+
+    /* Loading action */
+    case IS_LOADING:
+        return{ ...state ,isLoading:action.payload }
 
 
 

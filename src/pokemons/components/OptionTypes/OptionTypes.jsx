@@ -1,25 +1,27 @@
+import style from "./Options.module.css";
 
-
-
-
-export const OptionTypes = ({ newPokemon, types, checkBox, handleChange, }) => {
+export const OptionTypes = ({ newPokemon, types, checkBox, handleChange }) => {
   return (
-    <div>
+    <>
+      <label>Types:</label>
+      <div className={style.container_options}>
         {types.map((type) => (
           <>
             <label key={type.ID}>
-              <input 
-                type="checkbox" 
-                name={type.name} 
-                value={type.ID} 
-                onChange={handleChange} 
+              <input
+                className={style.checkboxLabel}
+                type="checkbox"
+                name={type.name}
+                value={type.ID}
+                onChange={handleChange}
                 checked={newPokemon.types.includes(type.ID)}
-                disabled={ !checkBox && !newPokemon.types.includes(type.ID) }
+                disabled={!checkBox && !newPokemon.types.includes(type.ID)}
               />
               {type.name}
             </label>
           </>
         ))}
-    </div>
+      </div>
+    </>
   );
-}
+};

@@ -16,6 +16,7 @@ import {
   NAVIGATE_PREV,
   CHANGE_POKEMONS_PER_PAGE,
   CURRENT_PAGE,
+  IS_LOADING
 } from "./actions";
 
 export const getPokemons = () => {
@@ -127,4 +128,10 @@ export const onChangePokemonsPerPage = (page) => {
 };
 export const onCurrentPage = (page) => {
   return { type: CURRENT_PAGE, payload: page };
+};
+
+
+/* Loading  */
+export const setLoading = (state) => {
+  return { type: IS_LOADING, payload: state };
 };

@@ -1,0 +1,87 @@
+
+
+.container {
+    /* border: 3px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.message_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+  background-color: rgba(0, 0, 0, 0.7); 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+/* Estilos para el mensaje */
+.message_box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el texto del mensaje */
+.message_text {
+  font-size: 18px;
+  color: #333;
+}
+
+
+
+.container_pagination{
+  margin-bottom: 20px;
+}
+
+.container_cards{
+    /* background: orange; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    grid-template-rows: repeat(3, 1fr);    /* 3 filas */
+    gap: 20px;                            /* Espacio entre tarjetas */
+
+    /* Centrar elementos en cada tarjeta */
+    justify-items: center;
+    align-items: center;
+
+}
+
+/* Estilos para pantallas grandes (4 columnas) */
+@media screen and (min-width: 1246px) {
+    .container_cards {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+@media screen and (max-width: 1245px) {
+    .container_cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Estilos para pantallas medianas (2 columnas) */
+  @media screen and (max-width: 1023px) {
+    .container_cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas (1 columna) */
+  @media screen and (max-width: 767px) {
+    .container_cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+
+  

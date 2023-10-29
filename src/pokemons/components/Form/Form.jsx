@@ -15,97 +15,128 @@ export const Form = () => {
   } = useForm();
 
   return (
-    <>
-      <form className={style.container} onSubmit={handleSubmit}>
-        <label>name</label>
+    <div className={style.container_form}>
+      <form className={style.form} onSubmit={handleSubmit}>
+        {/* <label>name</label> */}
         <input
+          className={style.custom_input}
           type="text"
           name="name"
           value={newPokemon.name}
           onChange={handleChange}
-          placeholder="Ejm: Ultrapikachu"
+          placeholder="Name"
         />
-        {errors.name && <p className={style.errors}>{errors.name}</p>}
+        {errors.name ? <p className={style.errors}>{errors.name}</p> : <div className={style.space}></div>}
 
-        <label>image</label>
+        {/* <label>image</label> */}
         <input
+          className={style.custom_input}
           type="text"
           name="images"
           value={newPokemon.images}
           onChange={handleChange}
-          placeholder="Url: .jpg, .jpeg, .png o .gif"
+          placeholder="Image:url"
         />
-        {errors.images && <p className={style.errors}>{errors.images}</p>}
+        {errors.images ? <p className={style.errors}>{errors.images}</p> : <div className={style.space}></div>}
 
-        <label>hp</label>
-        <input
-          type="number"
-          step="1"
-          name="hp"
-          value={newPokemon.hp}
-          onChange={handleChange}
-        />
-        {errors.hp && <p className={style.errors}>{errors.hp}</p>}
+        <div className={style.stats}>
+          <div className={style.stat}>
+            <label>hp:</label>
+            <input
+              className={style.custom_input}
+              type="number"
+              step="1"
+              name="hp"
+              value={newPokemon.hp}
+              onChange={handleChange}
+            />
+          </div>
 
-        <label>attack</label>
-        <input
-          type="number"
-          name="attack"
-          value={newPokemon.attack}
-          onChange={handleChange}
-        />
-        {errors.attack && <p className={style.errors}>{errors.attack}</p>}
+          {errors.hp ? <p className={style.errors}>{errors.hp}</p> : <div className={style.space}></div>}
 
-        <label>defense</label>
-        <input
-          type="number"
-          name="defense"
-          value={newPokemon.defense}
-          onChange={handleChange}
-        />
-        {errors.defense && <p className={style.errors}>{errors.defense}</p>}
+          <div className={style.stat}>
+            <label>attack:</label>
+            <input
+              className={style.custom_input}
+              type="number"
+              name="attack"
+              value={newPokemon.attack}
+              onChange={handleChange}
+            />
+          </div>
 
-        <label>speed</label>
-        <input
-          type="number"
-          name="speed"
-          value={newPokemon.speed}
-          onChange={handleChange}
-        />
-        {errors.speed && <p className={style.errors}>{errors.speed}</p>}
+          {errors.attack ? <p className={style.errors}>{errors.attack}</p> : <div className={style.space}></div>}
 
-        <label>height</label>
-        <input
-          type="number"
-          name="height"
-          value={newPokemon.height}
-          onChange={handleChange}
-        />
-        {errors.height && <p className={style.errors}>{errors.height}</p>}
+          <div className={style.stat}>
+            <label>defense:</label>
+            <input
+              className={style.custom_input}
+              type="number"
+              name="defense"
+              value={newPokemon.defense}
+              onChange={handleChange}
+            />
+          </div>
+          {errors.defense ? <p className={style.errors}>{errors.defense}</p> : <div className={style.space}></div>}
 
-        <label>weight</label>
-        <input
-          type="number"
-          name="weight"
-          value={newPokemon.weight}
-          onChange={handleChange}
-        />
-        {errors.weight && <p className={style.errors}>{errors.weight}</p>}
+          <div className={style.stat}>
+            <label>speed:</label>
+            <input
+              className={style.custom_input}
+              type="number"
+              name="speed"
+              value={newPokemon.speed}
+              onChange={handleChange}
+            />
+          </div>
+          {errors.speed ? <p className={style.errors}>{errors.speed}</p> : <div className={style.space}></div>}
 
-        <label>Types:</label>
-        {errors.types && <p className={style.errors}>{errors.types}</p>}
+          <div className={style.stat}>
+            <label>height:</label>
+            <input
+              className={style.custom_input}
+              type="number"
+              name="height"
+              value={newPokemon.height}
+              onChange={handleChange}
+            />
+          </div>
+          {errors.height ? <p className={style.errors}>{errors.height}</p> : <div className={style.space}></div>}
+
+          <div className={style.stat}>
+            <label>weight:</label>
+            <input
+              className={style.custom_input}
+              type="number"
+              name="weight"
+              value={newPokemon.weight}
+              onChange={handleChange}
+            />
+          </div>
+          {errors.weight ? <p className={style.errors}>{errors.weight}</p> : <div className={style.space}></div>}
+        </div>
+
         <OptionTypes
           newPokemon={newPokemon}
           types={types}
           checkBox={checkBox}
           handleChange={handleChange}
         />
-        <a href="#" onClick={cleanFields}>
-          Limpiar campos
+        {errors.types ? <p className={style.errors}>{errors.types}</p> : <div className={style.space}></div>}
+
+
+        <a className={style.cleanLink} href="#" onClick={cleanFields}>
+          Clean Fields
         </a>
 
-        <button disabled={!areThereErrors(errors)} type="submit">Create</button>
+        <button
+          className={style.createButton}
+          disabled={!areThereErrors(errors)}
+          type="submit"
+        >
+          Create
+        </button>
       </form>
-    </>
+    </div>
   );
 };

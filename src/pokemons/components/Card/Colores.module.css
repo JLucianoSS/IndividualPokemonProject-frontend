@@ -1,0 +1,13 @@
+
+/* Colores de los tipos de pokemon */
+
+.color_fire {
+    background: orange;
+    color: white;
+}
+  
+.grass {
+    background: firebrick;
+    color: white;
+}
+  

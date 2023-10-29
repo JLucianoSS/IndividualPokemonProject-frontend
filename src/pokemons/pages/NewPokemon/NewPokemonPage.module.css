@@ -1,0 +1,6 @@
+.container_newpokemon{
+    background: #293241;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

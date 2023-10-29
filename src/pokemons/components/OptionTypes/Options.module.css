@@ -1,0 +1,23 @@
+
+
+.container_options{
+  width: 100%;
+  background: #fff;
+  /* border: 1px solid gold; */
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px (0, 0, 0, 0.5); 
+  padding: 1rem;
+}
+
+.container_options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+  
+.checkboxLabel {
+  margin: 5px 0;
+}
+  
+.checkboxLabel input[type="checkbox"] {
+  margin-right: 5px;
+}

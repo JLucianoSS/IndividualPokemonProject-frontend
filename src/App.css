@@ -1,20 +1,7 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-/* Estilos globales temporales */
-/* Navbar */
-.navBar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container{
-  margin: 10px;
-}
-.link {
-  margin: 10px
+
+/* TIPOGRAFIAS Y ESTILOS GLOBALES */
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

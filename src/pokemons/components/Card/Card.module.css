@@ -2,26 +2,53 @@
 
 
 .container_card {
-    border: solid 2px white;
-    max-height: 300px;
+    /* border: solid 3px black; */
+    background: #f2f2f2;
+    max-height: 340px;
     height: 500px;
-    width: 300px;
+    width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10%;
     
 }
 
 .id {
-    font-size: 10px;
+    font-size: 13px;
+    color: #91919f;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .name {
-    font-size: 15px;
+    margin-top: 0;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #313131;
+}
+
+.container_types{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    /* background: red; */
+    
 }
 
 .img{
-    width: 110px;
-    height: 150px;
+    width: 165px;
+    height: 190px;
+    margin-bottom: 0;
 }
+
+.color_type{
+    background: green;
+    padding: 0.4rem 0.4rem;
+    width: 5rem;
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+}
+

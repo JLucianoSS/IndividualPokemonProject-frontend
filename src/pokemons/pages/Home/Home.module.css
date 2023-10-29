@@ -1,0 +1,39 @@
+
+
+.home_container{
+    padding-top: 80px;
+    /* border: 5px solid green; */
+}
+
+.home_options{
+    margin-top: 25px;
+    margin-bottom: 15px;
+    /* background: peachpuff; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.container_loading {
+    /* background: blue; */
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading{
+    /* background: green; */
+    width: 5rem;
+    
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .home_options{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+    }
+}

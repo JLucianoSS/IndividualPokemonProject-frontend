@@ -1,0 +1,131 @@
+
+
+.containers {
+    /* background: green; */
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+/* ESTILOS PARA LOS SELECT DE FILTRADO */
+.custom_select {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    user-select: none;
+  }
+  
+  /* Estilo del triángulo de desplegable */
+  .custom_select::after {
+    content: '\25BC'; /* Unicode para un triángulo hacia abajo */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+  }
+  
+  /* Cambio de estilo al enfocar el select */
+  .custom_select:focus {
+    outline: none;
+    border-color: #293241;
+  }
+  
+  /* Estilos del dropdown (cuando se abre) */
+  .custom_select.select-open::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  /* Estilo de las opciones del select */
+  .custom_select select {
+    appearance: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  /* Animación de las opciones al hacer hover */
+  .custom_select select option:hover {
+    background-color: #293241;
+    color: #fff;
+  }
+  
+  /* Estilos para el focus de las opciones (puede variar según el navegador) */
+  .custom_select select option:focus {
+    background-color: #293241;
+    color: #fff;
+  }
+
+
+
+
+
+
+
+/* ESTILOS PARA EL BOTON */
+.container_button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #293241;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+  }
+  
+  /* Animación de crecimiento al colocar el cursor sobre el botón */
+  .container_button:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+  }
+  
+  /* Cambio de color al hacer clic en el botón */
+  .container_button:active {
+    background-color: #003f80;
+  }
+  
+  /* Estilo adicional para cuando se le da foco al botón (puede ser útil para accesibilidad) */
+  .container_button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+
+@media screen and (max-width: 1245px) {
+    .custom_select {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .custom_select {
+        width: 20rem;
+        margin: 1rem;
+    }
+    .containers{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container_button{
+        margin: 1rem;
+    }
+}
+
+
+
+

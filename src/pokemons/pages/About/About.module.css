@@ -1,0 +1,78 @@
+
+
+.container_about{
+    background: #293241;
+    min-height: 100vh; /* Esto buscas? */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container_info{
+    background: #f2f2f2;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin: 2rem;
+    padding: 2rem;
+    
+}
+.container_info img{
+    width: 12rem;
+    border-radius: 20px;
+}
+
+.container_contact {
+    /* background: gray; */
+    display: flex;
+    flex-direction: column;
+    width: 12rem;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.container_contact img{
+    width: 3rem;
+}
+
+.container_name_desc{
+    padding: 3rem;
+}
+
+
+/* Estilos para pantallas grandes (4 columnas) */
+@media screen and (min-width: 1246px) {
+   
+  }
+@media screen and (max-width: 1245px) {
+    .container_info{
+        flex-direction: column;
+    }
+    .container_contact{
+        flex-direction: row;
+    }
+    .container_name_desc{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+    .container_name_desc h1{
+        
+        margin-top: 0;
+    }
+ 
+  }
+  
+  /* Estilos para pantallas medianas (2 columnas) */
+  @media screen and (max-width: 1023px) {
+    
+  }
+  
+  /* Estilos para pantallas pequeñas (1 columna) */
+  @media screen and (max-width: 767px) {
+   
+  }
+

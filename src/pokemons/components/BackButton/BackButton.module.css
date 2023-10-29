@@ -1,0 +1,46 @@
+
+
+.container_back_button{
+    /* border: 3px solid green; */
+    background: #ffe031;
+    padding: 1.5rem;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    /* position: fixed;
+    top: 0; */
+}
+
+
+/* Estilos base para el botón */
+.back_button {
+    padding: 10px 20px;
+    background-color: #293241;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    display: flex;
+    width: 9rem;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Animación de crecimiento al colocar el cursor sobre el botón */
+  .back_button:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+  }
+  
+  /* Cambio de color al hacer clic en el botón */
+  .back_button:active {
+    background-color: #003f80;
+  }
+  
+  /* Estilo adicional para cuando se le da foco al botón (puede ser útil para accesibilidad) */
+  .back_button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }

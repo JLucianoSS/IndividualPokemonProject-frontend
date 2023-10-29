@@ -1,0 +1,17 @@
+/*  */
+.barra {
+    width: 200px;
+    height: 20px;
+    background-color: #ccc;
+    position: relative;
+    margin: 20px;
+  }
+
+  .relleno {
+    height: 100%;
+    width: 0;
+    background-color: #007bff;
+    position: absolute;
+    /* animation: 2s ease forwards; */
+  }
+

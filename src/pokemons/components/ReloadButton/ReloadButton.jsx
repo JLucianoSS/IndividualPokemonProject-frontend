@@ -1,11 +1,11 @@
-import { useDispatch } from "react-redux";
-import { getPokemons } from "../../../redux/actions-types";
 
-export const ReloadButton = () => {
-  const dispatch = useDispatch();
+import style from './RButton.module.css'
 
-  const handleClick = () => {
-    dispatch(getPokemons());
-  };
-  return <button onClick={handleClick}>Reload</button>;
+export const ReloadButton = ({onClick}) => {
+ 
+  return (
+    <div >
+      <button className={style.container_button}  onClick={onClick}>Reload</button>
+    </div>
+  )
 };

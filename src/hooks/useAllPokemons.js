@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { getPokemons } from '../redux/actions-types'
+import { getPokemons,setLoading } from '../redux/actions-types'
 
 export const useAllPokemons = () => {
   /* 
@@ -13,20 +13,23 @@ export const useAllPokemons = () => {
 
   const dispatch = useDispatch();
   const { pokemons } = useSelector((state) => state);
-  const [isLoading, setIsLoading] = useState(true);
+  const isLoading = useSelector((state) => state.isLoading)
+  // const [isLoading, setIsLoading] = useState(true);
 
   const getAllPokemons = async () => {
     await dispatch(getPokemons());
-    setIsLoading(false);
+    // setIsLoading(false);
+    dispatch(setLoading(false))
   };
 
   useEffect(() => {
     getAllPokemons();
+    
   }, []);
 
 
   return {
     pokemons,
-    isLoading
+    isLoading,
   }
 };

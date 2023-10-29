@@ -1,33 +1,22 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getPokemon, setInput} from "../../../redux/actions-types"
+
+import { useSearchBar } from '../../hooks/useSearchBar';
+import style from './SearchBar.module.css'
 
 export const SearchBar = () => {
 
-
-  const input = useSelector((state) => state.input);
-  const distpatch = useDispatch();
-
-  const handleChange = (event) => {
-    const { value } = event.target;
-    distpatch(setInput(value))
-  };
-
-  const handleClick = () => {
-    distpatch(getPokemon(input)) //trae el pokemon escrito por el input
-  };
-
+  const {handleChange,handleKeyPress,input } = useSearchBar();
 
   return (
-    <>
+    <div className={style.container_search}>
       <input
+        className={style.custom_input}
         type="search"
-        placeholder="pikachu"
+        placeholder="find pokemon"
+        onKeyUp={handleKeyPress}
         name="name"
         value={input}
         onChange={handleChange}
       />
-      <button disabled={input ===""} onClick={handleClick}>Search</button>
-    </>
+    </div>
   );
 };

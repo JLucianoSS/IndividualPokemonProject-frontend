@@ -28,6 +28,9 @@ export const NAVIGATE_PREV = "NAVIGATE_PREV";
 export const CHANGE_POKEMONS_PER_PAGE = "CHANGE_POKEMONS_PER_PAGE";
 export const CURRENT_PAGE = "CURRENT_PAGE";
 
+/* Para el Loading */
+export const IS_LOADING = "IS_LOADING";
+
 
 
 
