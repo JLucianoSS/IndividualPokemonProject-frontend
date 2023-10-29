@@ -11,4 +11,5 @@ export { PaginationButtons } from "./PaginationButtons/PaginationButtons";
 export { ReloadButton } from "./ReloadButton/ReloadButton";
 export { SearchBar } from "./SearchBar/SearchBar";
 export { StatBar } from "./StatBar/StatBar";
+export { TypeColores } from "./Colores/Colores";
 

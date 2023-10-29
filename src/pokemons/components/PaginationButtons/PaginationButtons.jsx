@@ -15,7 +15,7 @@ export const PaginationButtons = ({pages,currentPage,totalPages}) => {
             {p}
           </button>
         ))}
-        <button className={style.pagination_button} disabled={currentPage === pages[totalPages.length - 1]} onClick={handleNavigateNext}>Next</button>
+        <button className={style.pagination_button} disabled={currentPage === pages[pages.length - 1]} onClick={handleNavigateNext}>Next</button>
       </div>
 
       {/* <div>

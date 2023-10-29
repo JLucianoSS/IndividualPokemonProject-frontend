@@ -1,5 +1,5 @@
 import { useDetailPage } from "../../hooks/useDetailPage";
-import { BackButton, StatBar } from "../../components";
+import { BackButton, StatBar, TypeColores } from "../../components";
 import { capitalizeFirstLetter } from "../../utils/capitalized";
 import loading from "../../../assets/loading.gif";
 import style from "./Detail.module.css";
@@ -25,7 +25,7 @@ export const DetailPage = () => {
                 </h1>
                 <div className={style.container_types}>
                   {types.map((p) => (
-                    <h3 key={p.name}>{p.name}</h3>
+                    <TypeColores key={p.name} typename={p.name}/>
                   ))}
                 </div>
               </div>

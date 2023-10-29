@@ -80,14 +80,11 @@
     /* background: gray; */
     width: 100%;
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.container_types h3 {
-    padding-right: 2rem;
-    padding-left: 2rem;
-}
+
 .container_title img{
     /* background: blue; */
     width: 35vw;

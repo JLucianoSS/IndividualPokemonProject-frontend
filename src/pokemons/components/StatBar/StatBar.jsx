@@ -17,8 +17,8 @@ export const StatBar = ({stat}) => {
 
   return (
     <div>
-      <div class={style.barra}>
-        <div class={style.relleno} style={{ width: `${(porcentaje/255)*100}%` }}></div>
+      <div className={style.barra}>
+        <div className={style.relleno} style={{ width: `${(porcentaje/255)*100}%` }}></div>
       </div>
     </div>
   );
