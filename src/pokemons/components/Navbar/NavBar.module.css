@@ -121,4 +121,20 @@
     
   }
 
+/* Estilos para pantallas pequeñas (1 columna) */
+@media screen and (max-width: 767px) {
+    .nav_logo {
+        padding-top: 3.3rem;
+        width:10rem;
+    
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nav_logo {
+        padding-top: 3.5rem;
+        width:8rem;
+    }
+  }
+
 

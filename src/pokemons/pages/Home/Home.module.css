@@ -31,9 +31,10 @@
 
 @media screen and (max-width: 700px) {
     .home_options{
+        /* background: papayawhip; */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 0px;
+        margin-top: 19px;
     }
 }

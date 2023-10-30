@@ -124,18 +124,18 @@ export const Form = () => {
         />
         {errors.types ? <p className={style.errors}>{errors.types}</p> : <div className={style.space}></div>}
 
-
-        <a className={style.cleanLink} href="#" onClick={cleanFields}>
+        <a className={style.cleanLink} onClick={cleanFields}>
           Clean Fields
         </a>
 
         <button
-          className={style.createButton}
+          className={`${style.createButton} ${!areThereErrors(errors) ? style.disabledButton : ''}`}
           disabled={!areThereErrors(errors)}
           type="submit"
         >
           Create
         </button>
+
       </form>
     </div>
   );

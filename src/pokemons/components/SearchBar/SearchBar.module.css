@@ -60,3 +60,10 @@
         height: 2.5rem;
     }
 }
+
+@media screen and (max-width: 500px) {
+  .custom_input {
+      width: 8rem;
+      height: 2.1rem;
+  }
+}

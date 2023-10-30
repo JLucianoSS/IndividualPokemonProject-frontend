@@ -105,6 +105,14 @@
     background-color: #0056b3;
   }
 
+  .disabledButton {
+    background-color: #ccc;
+    color: #999; /* Cambia el color del texto para que sea más claro */
+    cursor: not-allowed;
+  }
+  .disabledButton:hover {
+    background-color: #ccc;
+  }
 
 
 /*ESPACE AND ERRORS*/
