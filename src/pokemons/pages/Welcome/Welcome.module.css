@@ -17,7 +17,6 @@
 
 }
 
-
 .container_welcome::before {
     content: "";
     position: fixed;
@@ -30,6 +29,14 @@
   }
 
 
+  .title_pokedex{
+    position: relative;
+    top: -11rem;
+    width: 22rem;
+    z-index: 1;
+  }
+  
+
   .animated_button {
     position: relative;
     background-color: #293241b4;
@@ -41,7 +48,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.4s, color 0.4s, transform 0.4s;
-    z-index: 1;
+    z-index: 2;
   }
   
   .animated_button:hover {
