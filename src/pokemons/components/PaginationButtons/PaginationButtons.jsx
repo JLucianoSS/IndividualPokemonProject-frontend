@@ -12,7 +12,7 @@ export const PaginationButtons = ({ pages, currentPage, totalPages }) => {
   } = usePagination({pages, currentPage, totalPages });
 
   return (
-    <>
+    <div className={style.container}>
       <div className={style.button_container}>
         <button
           className={style.pagination_button}
@@ -62,9 +62,9 @@ export const PaginationButtons = ({ pages, currentPage, totalPages }) => {
         </button>
       </div>
 
-      {/* <div>
+      <div className={style.total_pages}>
         Page {currentPage} of {totalPages}
-      </div> */}
-    </>
+      </div>
+    </div>
   );
 };
