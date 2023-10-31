@@ -37,6 +37,8 @@ export const Cards = ({ pokemons }) => {
           />
         ))}
       </div>
+      <br />
+      <br />
 
       <PaginationButtons
         pages={pages}
