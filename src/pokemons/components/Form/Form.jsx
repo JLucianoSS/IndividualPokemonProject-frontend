@@ -29,14 +29,15 @@ export const Form = () => {
         {errors.name ? <p className={style.errors}>{errors.name}</p> : <div className={style.space}></div>}
 
         {/* <label>image</label> */}
-        <input
-          className={style.custom_input}
-          type="text"
-          name="images"
-          value={newPokemon.images}
-          onChange={handleChange}
-          placeholder="Image:url"
-        />
+          <input
+            className={style.custom_input}
+            type="text"
+            name="images"
+            value={newPokemon.images}
+            onChange={handleChange}
+            placeholder="Image:url"
+          />
+          {newPokemon.images && errors.images==="" ? <img className={style.preview_img} src={newPokemon.images} alt="preview" /> : ""}
         {errors.images ? <p className={style.errors}>{errors.images}</p> : <div className={style.space}></div>}
 
         <div className={style.stats}>

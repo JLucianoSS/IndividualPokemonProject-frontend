@@ -87,6 +87,14 @@
 
 
 
+  /*VISTA PREVIA DEL POKEMON CHIQUITTO*/
+
+
+  .preview_img{
+    width: 3rem;
+  }
+
+
   
 /* Estilos para el botón "Crear Pokémon" */
 .createButton {

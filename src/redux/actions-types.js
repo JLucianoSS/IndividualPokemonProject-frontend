@@ -11,6 +11,10 @@ import {
   FILTER_BY_TYPE,
   ORDER_BY_ALPHA,
   ORDER_BY_ATTACK,
+  SET_ORDER_BY_ATTACK,
+  SET_ORDER_BY_NAME,
+  SET_ORIGEN_FILTER,
+  SET_TYPE_FILTER,
   NAVIGATE_NEXT,
   NAVIGATE_PREV,
   CHANGE_POKEMONS_PER_PAGE,
@@ -112,6 +116,25 @@ export const orderByAttack = () => {
   return { type: ORDER_BY_ATTACK};
 };
 
+/* Para los selects */
+export const setOrigenFilter = (filterValue) => ({
+  type: SET_ORIGEN_FILTER,
+  payload: filterValue,
+});
+
+export const setTypeFilter = (filterValue) => ({
+  type: SET_TYPE_FILTER,
+  payload: filterValue,
+});
+
+export const setOrderByName = (orderValue) => ({
+  type: SET_ORDER_BY_NAME,
+  payload: orderValue,
+});
+
+export const setOrderByAttack = () => ({
+  type: SET_ORDER_BY_ATTACK,
+});
 
 
 /* Paginación  */

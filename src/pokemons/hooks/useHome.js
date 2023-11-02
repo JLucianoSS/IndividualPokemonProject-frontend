@@ -1,6 +1,6 @@
 
 import { useDispatch } from "react-redux";
-import { getPokemons, setLoading } from "../../redux/actions-types";
+import { getPokemons, setLoading, setOrderByAttack, setOrderByName,setOrigenFilter,setTypeFilter } from "../../redux/actions-types";
 import { useState } from "react";
 
 export const useHome = () => {
@@ -17,6 +17,11 @@ export const useHome = () => {
 
   const handleReload = () => {
     loadData();
+    dispatch(setOrigenFilter("AllPokemons"));
+    dispatch(setTypeFilter("AllTypes")); 
+    dispatch(setOrderByName("ascendente")); 
+    dispatch(setOrderByAttack(false)); 
+    
   };
 
   return {

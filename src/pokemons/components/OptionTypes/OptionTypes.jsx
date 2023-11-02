@@ -7,7 +7,7 @@ export const OptionTypes = ({ newPokemon, types, checkBox, handleChange }) => {
       <div className={style.container_options}>
         {types.map((type) => (
           <>
-            <label key={type.ID}>
+            <label className={`${ !checkBox && !newPokemon.types.includes(type.ID) ? style.label_disable : "" }`} key={type.ID}>
               <input
                 className={style.checkboxLabel}
                 type="checkbox"

@@ -20,6 +20,12 @@ export const FILTER_BY_TYPE = "FILTER_BY_TYPE";
 export const ORDER_BY_ALPHA = "ORDER_BY_ALPHA";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 
+export const SET_ORIGEN_FILTER = "SET_ORIGEN_FILTER";
+export const SET_TYPE_FILTER = "SET_TYPE_FILTER";
+export const SET_ORDER_BY_NAME = "SET_ORDER_BY_NAME";
+export const SET_ORDER_BY_ATTACK = "SET_ORDER_BY_ATTACK";
+
+
 
 /*Para la paginacion */
 // export const GET_POKEMONS_PER_PAGE = "GET_POKEMONS_PER_PAGE";

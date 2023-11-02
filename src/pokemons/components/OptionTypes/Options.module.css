@@ -15,9 +15,13 @@
 }
   
 .checkboxLabel {
-  margin: 5px 0;
+  margin: 5px 2px;
 }
   
 .checkboxLabel input[type="checkbox"] {
   margin-right: 5px;
+}
+
+.label_disable{
+  color: gainsboro;
 }

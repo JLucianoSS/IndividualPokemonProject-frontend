@@ -9,17 +9,20 @@ export const PaginationButtons = ({ pages, currentPage, totalPages }) => {
     groupIndex,
     totalPagesInGroups,
     visiblePages,
-  } = usePagination({pages, currentPage, totalPages });
+  } = usePagination({ pages, currentPage, totalPages });
 
   return (
     <div className={style.container}>
       <div className={style.button_container}>
+        <button className={style.pagination_button} onClick={ () => handleCurrentPage(pages[0])}>
+          {"<<"}
+        </button>
         <button
           className={style.pagination_button}
           disabled={currentPage === pages[0]}
           onClick={handleNavigatePrev}
         >
-          Prev
+          {"<"}
         </button>
 
         {groupIndex > 0 && (
@@ -58,7 +61,10 @@ export const PaginationButtons = ({ pages, currentPage, totalPages }) => {
           disabled={currentPage === pages[pages.length - 1]}
           onClick={handleNavigateNext}
         >
-          Next
+          {">"}
+        </button>
+        <button className={style.pagination_button} onClick={ () => handleCurrentPage(pages[pages.length - 1])}>
+          {">>"}
         </button>
       </div>
 

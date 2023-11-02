@@ -21,6 +21,7 @@
     cursor: pointer;
     transition: border-color 0.3s;
     user-select: none;
+    margin-right: 1rem;
   }
   
   /* Estilo del triángulo de desplegable */
@@ -103,12 +104,10 @@
   }
 
 
-
-
-
 @media screen and (max-width: 1245px) {
     .custom_select {
         width: 100px;
+        margin-right: 1rem;
     }
 }
 

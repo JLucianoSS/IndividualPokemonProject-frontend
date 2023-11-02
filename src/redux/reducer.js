@@ -10,12 +10,17 @@ import {
   FILTER_BY_TYPE,
   ORDER_BY_ALPHA,
   ORDER_BY_ATTACK,
+  SET_ORDER_BY_ATTACK,
+  SET_ORDER_BY_NAME,
+  SET_ORIGEN_FILTER,
+  SET_TYPE_FILTER,
   NAVIGATE_PREV,
   NAVIGATE_NEXT,
   CURRENT_PAGE,
   CHANGE_POKEMONS_PER_PAGE,
   IS_LOADING
 } from "./actions";
+import { orderByAttack } from "./actions-types";
 
 const initialState = {
   /* HOME PAGE*/
@@ -33,6 +38,12 @@ const initialState = {
   allPokemons:[],
   pokemonsOrigen: [],
   pokemonsTypes: [],
+  inputSelect: {
+    origenFilter: 'AllPokemons',
+    typeFilter: 'AllTypes',
+    orderByName: 'ascendente',
+    orderByAttack: false,
+  },
 
   /* PAGINATION */
   pokemonsPerPage: 12, // # paginación
@@ -74,7 +85,7 @@ export const rootReducer = (state = initialState, action) => {
 
       
 
-    /*Orders and filters */
+    /* Logic Orders and filters */
     case FILTER_BY_ORIGEN:
       if (action.payload === "Api") {
         const apipokemons = state.allPokemons.filter((pokemon) => typeof pokemon.id === "number");
@@ -115,11 +126,31 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: ordered,
       };
-    case ORDER_BY_ATTACK: 
-      const attack = state.pokemons.sort((a, b) => b.attack - a.attack);
+    case ORDER_BY_ATTACK:
+      const attack = !state.inputSelect.orderByAttack
+        ? state.pokemons.sort((a, b) => b.attack - a.attack)
+        : state.pokemons.sort((a, b) => a.attack - b.attack)
       return {
         ...state,
         pokemons: attack,
+      };
+
+    /* inputs Orders and filters */
+    case SET_ORIGEN_FILTER:
+      return { ...state, inputSelect:{...state.inputSelect,origenFilter: action.payload} };
+
+    case SET_TYPE_FILTER:
+      return { ...state, inputSelect:{...state.inputSelect,typeFilter: action.payload }};
+
+    case SET_ORDER_BY_NAME:
+      return { ...state, inputSelect:{...state.inputSelect,orderByName: action.payload} };
+
+    case SET_ORDER_BY_ATTACK:
+      return { 
+        ...state, 
+        inputSelect: {...state.inputSelect,
+          orderByAttack: !state.inputSelect.orderByAttack
+        } 
       };
 
 
@@ -146,5 +177,7 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+
 
 export default rootReducer;
