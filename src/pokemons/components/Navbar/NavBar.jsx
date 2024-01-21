@@ -12,7 +12,11 @@ export const NavBar = () => {
         
         <div className={style.container_logo}>
 
-        <img className={style.nav_logo} src={pokedex} alt="" />
+        <Link to='/home'>
+          <img className={style.nav_logo} src={pokedex} alt="" />
+        </Link>
+
+
         </div>
 
         <div className={style.nav_search}>

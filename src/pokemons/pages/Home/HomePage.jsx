@@ -1,5 +1,5 @@
 
-import { Cards, FilterAndOrder, ProgressLoading, ReloadButton } from "../../components";
+import { Cards, FilterAndOrder, ReloadButton } from "../../components";
 import { useHome } from "../../hooks/useHome";
 import style from "./Home.module.css";
 import img from "../../../assets/loading.gif";
@@ -9,26 +9,16 @@ export const HomePage = ({ pokemons, isLoading}) => {
   const { handleReload, loading} = useHome();
 
 
-  const pokeloading1 = (
+  const pokeloading = (
     <div className={style.container_loading}>
       <img
         className={style.loading}
         src={img}
         alt="loading"
       />
-      <ProgressLoading isLoading={ isLoading }/>
+      <span style={{marginTop:'1rem'}}><b>Cargando...</b></span>
     </div>
   );
-  const pokeloading2 = (
-    <div className={style.container_loading}>
-      <img
-        className={style.loading}
-        src={img}
-        alt="loading"
-      />
-    </div>
-  );
-
 
 
   return (
@@ -39,11 +29,11 @@ export const HomePage = ({ pokemons, isLoading}) => {
       </div>
 
       {loading ? (
-        pokeloading2
+        pokeloading
       ) : !isLoading ? (
         <Cards pokemons={pokemons} />
       ) : (
-        pokeloading1
+        pokeloading
       )}
     </div>
   );
