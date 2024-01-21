@@ -3,10 +3,9 @@ import { TypeColores } from "../../components";
 import { capitalizeFirstLetter } from "../../utils/capitalized";
 import styles from "./Card.module.css";
 
-
-export const Card = ({ id, name, images, types }) => {
-
+export const Card = ({ id, name, images, types,attack }) => {
   return (
+
     <div className={styles.container_card}>
       <Link to={`/detail/${id}`}>
         <img className={styles.img} src={images} alt={name} />
@@ -21,6 +20,7 @@ export const Card = ({ id, name, images, types }) => {
           <TypeColores key={type.name} typename={type.name}/>
         ))}
       </div>
+
     </div>
   );
 };

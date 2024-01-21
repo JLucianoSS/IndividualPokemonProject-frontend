@@ -20,7 +20,6 @@ import {
   CHANGE_POKEMONS_PER_PAGE,
   IS_LOADING
 } from "./actions";
-import { orderByAttack } from "./actions-types";
 
 const initialState = {
   /* HOME PAGE*/
