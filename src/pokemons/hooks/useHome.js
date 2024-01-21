@@ -26,6 +26,7 @@ export const useHome = () => {
 
   return {
     loading,
+    loadData,
     handleReload
   }
 };

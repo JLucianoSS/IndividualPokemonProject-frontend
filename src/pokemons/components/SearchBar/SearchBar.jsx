@@ -11,7 +11,7 @@ export const SearchBar = () => {
       <input
         className={style.custom_input}
         type="search"
-        placeholder="find pokemon"
+        placeholder="Search Pokemon"
         onKeyUp={handleKeyPress}
         name="name"
         value={input}

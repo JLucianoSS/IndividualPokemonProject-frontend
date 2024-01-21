@@ -77,7 +77,7 @@ export const rootReducer = (state = initialState, action) => {
 
     /*Pokemon search */
     case GET_POKEMON:
-      return { ...state, pokemons: [action.payload] };
+      return { ...state, pokemons: action.payload };
     case SET_INPUT:
       return { ...state, input: action.payload };
 
