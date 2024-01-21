@@ -12,4 +12,5 @@ export { ReloadButton } from "./ReloadButton/ReloadButton";
 export { SearchBar } from "./SearchBar/SearchBar";
 export { StatBar } from "./StatBar/StatBar";
 export { TypeColores } from "./Colores/Colores";
+export { ProgressLoading } from "./ProgressLoading/ProgressLoading";
 
